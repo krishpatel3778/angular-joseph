@@ -10,7 +10,11 @@ function MenuService($http, ApiPath) {
   var service = this;
 
   service.getCategories = function () {
-    return $http.get('https://patentcenter.uspto.gov/retrieval/public/v2/application/data?applicationNumberText=16/068570').then(function (response) {
+    return $http.get('https://patentcenter.uspto.gov/retrieval/public/v2/application/data?applicationNumberText=16/068570',{
+      headers:{
+        "Access-Control-Allow-Origin": '*',
+      }
+  }).then(function (response) {
       console.log("here")
       console.log(response.data)
       return response.data;
